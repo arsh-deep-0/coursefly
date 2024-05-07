@@ -39,4 +39,9 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
+import userRouter from  "./routes/user.routes.js"
+
+//routes declarations
+app.use("/api/v1/users", userRouter);
+ 
 export { httpServer };
