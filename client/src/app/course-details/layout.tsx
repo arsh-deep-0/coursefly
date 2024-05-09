@@ -19,7 +19,7 @@ export default function Layout({
   
   return (
     <div className="">
-      <header className="bg-white px-4 p-2 flex justify-between gray-border fixed top-0 left-0 w-full ">
+      <header className="bg-white px-4 p-2 flex justify-between gray-border fixed top-0 left-0 w-full z-40">
         <div onClick={navigateToHome}>
           <img src="/icons/Home.svg" alt="" />
         </div>

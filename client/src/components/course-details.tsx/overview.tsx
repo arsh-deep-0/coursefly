@@ -28,7 +28,7 @@ export default function Overview() {
     <>
       {courseDetails && (
         <div className="w-full flex justify-between relative">
-          <div className="flex flex-col gap-2 md:gap-4">
+          <div className="flex flex-col gap-2 md:gap-4 md:max-w-[50%] lg:max-w-[60%]">
             <div className="bg-white rounded-md p-2 md:hidden">
               <img
                 className="rounded-md"
@@ -44,7 +44,7 @@ export default function Overview() {
             </div>
             <span className="">{courseDetails.description}</span>
           </div>
-          <div className="bg-white rounded-md p-2 hidden md:flex max-w-96 gray-border absolute right-0 top-0">
+          <div className="bg-white rounded-md p-2 hidden md:flex max-w-[50%] lg:max-w-[40%] gray-border absolute right-0 top-0">
             <img className="rounded-md" src={courseDetails.thumbnail} alt="" />
           </div>
         </div>
