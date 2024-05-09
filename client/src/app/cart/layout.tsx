@@ -18,14 +18,12 @@ export default function Layout({
   const navigateToProfile= ()=>{
     router.push('/dashboard')
   }
-  const navigateToCart= ()=>{
-    router.push('/cart')
-  }
+ 
   return (
     <html lang="en">
       <body className={inter.className}>
         {" "}
-        <div className="container">
+        <div className="">
           <header className="bg-white px-4 p-2 flex justify-between gray-border fixed top-0 left-0 w-full ">
             <div onClick={navigateToHome}>
               <img src="/icons/Home.svg" alt="" />
@@ -35,11 +33,11 @@ export default function Layout({
               Course<span className="text-black">Fly</span>
             </span>
             <div className="flex gap-4">
-              <img onClick={navigateToCart} src="/icons/cart.svg" alt="" />
+              
               <img onClick={navigateToProfile} src="/icons/profile.svg" alt="" />
             </div>
           </header>
-          <main className="overflow-scroll pt-10 ">{children}</main>
+          <main className="overflow-scroll pt-10 w-full">{children}</main>
         </div>
       </body>
     </html>

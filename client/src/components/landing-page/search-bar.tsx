@@ -1,8 +1,13 @@
+'use client'
+import { setSearchTerm } from "@/lib/features/search-results/searchResultsSlice";
+import { AppDispatch } from "@/lib/store";
 import React from "react";
+import { useDispatch } from "react-redux";
 
 export default function SearchBar() {
+  const dispatch = useDispatch<AppDispatch>();
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center md:w-1/2 ">
       <label className="relative block w-full gray-border rounded-full" htmlFor="">
         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
           <svg
@@ -22,6 +27,7 @@ export default function SearchBar() {
           className="bg-white rounded-full px-2 py-1 focus:border-red-500 focus:outline-none focus:ring-0 w-full font-light pl-12 "
           type="search"
           placeholder="find your dream courses..."
+          onChange={(e)=>{dispatch(setSearchTerm(e.target.value))}}
         />
       </label>
     </div>

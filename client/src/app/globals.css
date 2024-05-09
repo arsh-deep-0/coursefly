@@ -72,3 +72,18 @@ button {
   border-radius: 0.25rem;
   padding: 0.2rem;
 }
+
+
+::-webkit-scrollbar {
+  background-color: white;
+  width: 4px;
+  height: 2px;
+}
+
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #7D54F2;
+  border-radius: 2px;
+
+}

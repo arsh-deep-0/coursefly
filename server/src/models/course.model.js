@@ -42,12 +42,24 @@ const courseSchema = new mongoose.Schema(
     ],
     syllabus: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"WeeklySyllabus",
+        type: String,
         required: true,
       },
     ],
-    students: [{}],
+    students: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    price: {
+      type: Number,
+      required: true,
+    },
+    discountedPrice: {
+      type: Number,
+      required: true,
+    },
   },
   { timestamps: true }
 );

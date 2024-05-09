@@ -1,15 +1,13 @@
 import { Router } from "express";
-import { getAllCourses, getCourseByCourseID } from "../controllers/course.controller";
+import { getAllCourses, getCourseByCourseID } from "../controllers/course.controller.js";
 
 
 
 const router = new Router();
 
-router.route("/register").post(
-  registerUser
-);
 
-router.route("/getAllCourses").post(getAllCourses);
+
+router.route("/getAllCourses").get(getAllCourses);
 
 router.route("/getCourse/:courseID").get(getCourseByCourseID)
 

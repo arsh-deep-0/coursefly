@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   if (req.path.startsWith("/api/v1/users") || req.path == "/") {
     next();
   } else {
-    verifyJWT(req, res, next);
+   next()
   }
 });
 
@@ -40,8 +40,12 @@ app.get("/", (req, res) => {
 });
 
 import userRouter from  "./routes/user.routes.js"
+import courseRouter from "./routes/course.routes.js"
+import subscriptionRouter from "./routes/subscription.routes.js"
 
 //routes declarations
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/courses", courseRouter);
+app.use("/api/v1/subscriptions", subscriptionRouter);
  
 export { httpServer };

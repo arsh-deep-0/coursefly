@@ -7,7 +7,7 @@ import React from "react";
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-light-blue flex flex-col  w-full gap-4 poppins text-black p-4">
+    <div className="min-h-screen bg-light-blue flex flex-col  w-full gap-4 poppins text-black p-4 md:px-24 md:py-16">
       <Overview />
       <CartOptions />
       <OtherDetails />

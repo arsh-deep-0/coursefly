@@ -6,8 +6,8 @@ import React from "react";
 
 export default function page() {
   return (
-    <div className="min-h-screen bg-light-blue flex flex-col items-center w-full gap-4 poppins text-black p-4">
-      <div className="flex justify-between py-8 ">
+    <div className="min-h-screen bg-light-blue flex flex-col items-center w-full gap-4 poppins text-black p-4 md:px-24 ">
+      <div className="flex justify-between py-8 md:w-full ">
         <Greetings />
 
         <CircularProgressBarDiv></CircularProgressBarDiv>
