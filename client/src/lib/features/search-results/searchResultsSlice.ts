@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const fetchcourses = createAsyncThunk("searchResults/allCourses", async () => {
-  const response = await axios.get("api/courses/getAllCourses");
+  const response = await axios.get("/api/courses/getAllCourses");
   console.log("data: ", response.data.data);
   return response.data
     .data; /* this will become action.payload for automatically generated pending , fulfilled and rejected action types 
