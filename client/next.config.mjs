@@ -2,6 +2,9 @@
 
 const API_URL = process.env.API_URL;
 const nextConfig = {
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
   async rewrites() {
     return [
       {

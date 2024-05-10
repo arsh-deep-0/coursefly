@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen max-h-screen flex-col items-center justify-start gap-2 md:gap-8 p-4 bg-light-blue  poppins  text-black">
+    <main className="flex min-h-screen  flex-col items-center justify-start gap-2 md:gap-8 p-4 bg-light-blue  poppins  text-black">
       <div className="sticky max-h-[40%] w-full pb-4 flex justify-center flex-col items-center">
         <HeadingText />
         <SearchBar />

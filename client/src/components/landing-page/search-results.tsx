@@ -10,6 +10,9 @@ const SearchResults: React.FC = () => {
   const allCourses: Array<CourseType> = useSelector(
     (state: RootState) => state.SearchResults.courses
   );
+  const searchResultStatus = useSelector(
+    (state: RootState) => state.SearchResults.loading
+  );
   const searchTerm = useSelector(
     (state: RootState) => state.SearchResults.searchTerm
   );
@@ -61,7 +64,8 @@ const SearchResults: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-2 overflow-scroll h-full md:flex-row md:w-full md:max-w-full md:px-4 md:overflow-x-scroll  md:overflow-y-hidden ">
-      {searchResults &&
+      
+      {!searchResultStatus && searchResults &&
         searchResults.map((result: CourseType) => (
           <Course key={result._id} id={result._id} />
         ))}

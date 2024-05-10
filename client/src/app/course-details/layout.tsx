@@ -1,5 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,15 +22,19 @@ export default function Layout({
     <div className="">
       <header className="bg-white px-4 p-2 flex justify-between gray-border fixed top-0 left-0 w-full z-40">
         <div onClick={navigateToHome}>
-          <img src="/icons/Home.svg" alt="" />
-        </div>
+        <Image
+                src="/icons/Home.svg"
+                alt=""
+                width={24}
+                height={24}
+              ></Image>
+            </div>
 
-        <span className="poppins text-blue font-semibold text-xl">
-          Course<span className="text-black">Fly</span>
-        </span>
-        <div className="flex gap-4">
-        
-          <img onClick={navigateToProfile} src="/icons/profile.svg" alt="" />
+            <span className="poppins text-blue font-semibold text-xl">
+              Course<span className="text-black">Fly</span>
+            </span>
+            <div className="flex gap-4"  onClick={navigateToProfile}>
+              <Image src="/icons/profile.svg" alt="" width={24} height={24} />
         </div>
       </header>
       <main className="overflow-scroll pt-10 w-full">{children}</main>

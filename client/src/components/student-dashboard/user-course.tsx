@@ -7,6 +7,7 @@ import { MdAccessTime } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { CourseType } from "../types/CourseType";
 import { AppDispatch } from "@/lib/store";
+import Image from "next/image";
 
 type props = {
   id: string;
@@ -92,10 +93,12 @@ export default function UserCourse(props: props) {
       className="relative w-full p-4 bg-white flex flex-col gap-2 rounded-md gray-border md:min-w-96 "
       onClick={openCourse}
     >
-      <img
+      <Image
         className="w-full rounded-md gray-border"
-        src={course?.thumbnail}
+        src={course?.thumbnail || "/course-images/c5.jpg"}
         alt=""
+        width={250}
+        height={250}
       />
       <span className="font-semibold text-lg">{course?.name}</span>
       <div className="flex gap-2 items-center  justify-between">
@@ -127,7 +130,14 @@ export default function UserCourse(props: props) {
           </div>
         </div>
         <div className="h-full">
-          <img className="h-4 mr-2" src="/icons/save.svg" alt="" />
+          <div className="h-4 mr-2">
+            <Image
+              src="/icons/save.svg"
+              alt=""
+              width={16} 
+              height={16} 
+            />
+          </div>
         </div>
       </div>
     </div>
