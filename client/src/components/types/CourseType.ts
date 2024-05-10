@@ -13,4 +13,5 @@ export type CourseType = {
   students: any[];
   price:number;
   discountedPrice: number;
+  likes:number;
 };

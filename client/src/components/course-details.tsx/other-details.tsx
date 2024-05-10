@@ -1,17 +1,43 @@
 "use client";
-import { fetchcourse } from "@/lib/features/currentCourse/currentCourseSlice";
+import { decreaseCourseLikes, decreaseLikes, fetchcourse, increaseCourseLikes, increaseLikes } from "@/lib/features/currentCourse/currentCourseSlice";
 import { AppDispatch, RootState } from "@/lib/store";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MdAccessTime } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 
 import { CourseType } from "../types/CourseType";
+import Image from "next/image"
 
 export default function OtherDetails() {
+  const dispatch = useDispatch<AppDispatch>()
   const courseDetails: CourseType | null = useSelector(
     (state: RootState) => state.currentCourse.course
   ) as CourseType | null;
+
+  console.log(courseDetails)
+ 
+  const [isLiked ,setIsLiked] = useState(false)
+  const likesCount :number = useSelector(
+    (state: RootState) => state.currentCourse.likes
+  )
+  const courseID :string = useSelector(
+    (state: RootState) => state.currentCourse.courseID
+  )
+  console.log('lk',likesCount)
+
+  const like = ()=>{
+    if(isLiked){
+      dispatch(decreaseLikes())
+      console.log('courseID',courseID)
+      dispatch(decreaseCourseLikes(courseID))
+      setIsLiked(false)
+    }else{
+      dispatch(increaseLikes())
+      dispatch(increaseCourseLikes(courseID))
+      setIsLiked(true)
+    }
+  }
 
   return (
     <div className="flex flex-col gap-4">
@@ -31,8 +57,10 @@ export default function OtherDetails() {
           <div className="bg-white gray-border px-2 rounded-full ">
             <span className="">{courseDetails?.location}</span>
           </div>
-          <div className="bg-white gray-border px-2 rounded-full ">
-            <span className="">121</span>
+          <div className={`${isLiked?'bg-blue text-white':'bg-white'} gray-border px-2 rounded-full gap-2 flex`}
+          onClick={like}>
+          <Image src={"/icons/Like.svg"} alt={" "} width={16} height={16}></Image>
+            <span className="">{likesCount}</span>
           </div>
         </div>
       </div>

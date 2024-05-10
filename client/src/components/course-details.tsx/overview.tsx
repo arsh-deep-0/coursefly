@@ -1,5 +1,5 @@
 "use client";
-import { fetchcourse } from "@/lib/features/currentCourse/currentCourseSlice";
+import { fetchcourse, setCurrentCourse } from "@/lib/features/currentCourse/currentCourseSlice";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "@/lib/store";
@@ -19,7 +19,9 @@ export default function Overview() {
 
   useEffect(() => {
     const fetchCourseData = async () => {
+      console.log('cid',courseID)
       dispatch(fetchcourse(courseID));
+      dispatch(setCurrentCourse({id:courseID}))
     };
     fetchCourseData();
   }, [courseID, dispatch]);

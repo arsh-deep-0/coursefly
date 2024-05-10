@@ -5,8 +5,9 @@ import { CourseType } from "@/components/types/CourseType";
 
 const initialState = {
   loading: false,
-  courseID: undefined,
+  courseID: "",
   course: {},
+  likes: 0,
   error: "",
 };
 
@@ -20,13 +21,36 @@ const fetchcourse = createAsyncThunk<CourseType, string>(
                           but we have to add reducers as extra reducers as they are not created*/
   }
 );
+const increaseCourseLikes = createAsyncThunk<CourseType, string>(
+  "currentCourse/getCourse",
+  async (courseID: string) => {
+    const response = await axios.get(`api/courses/increaseLikes/${courseID}`);
+    console.log("data: ", response.data.data);
+    return response.data.data;
+  }
+);
+const decreaseCourseLikes = createAsyncThunk<CourseType, string>(
+  "currentCourse/getCourse",
+  async (courseID: string) => {
+    const response = await axios.get(`api/courses/decreaseLikes/${courseID}`);
+    console.log("data: ", response.data.data);
+    return response.data.data;
+  }
+);
 
 const currentCourseSlice = createSlice({
   name: "currentCourse",
   initialState,
   reducers: {
     setCurrentCourse: (state, action) => {
+      console.log('set id:',action.payload.id)
       state.courseID = action.payload.id;
+    },
+    increaseLikes: (state) => {
+      state.likes += 1;
+    },
+    decreaseLikes: (state) => {
+      state.likes -= 1;
     },
   },
   extraReducers: (builder) => {
@@ -37,6 +61,7 @@ const currentCourseSlice = createSlice({
       console.log("action", action);
       state.loading = false;
       state.course = action.payload;
+      state.likes = action.payload.likes;
       state.error = "";
     });
     builder.addCase(fetchcourse.rejected, (state, action) => {
@@ -48,5 +73,6 @@ const currentCourseSlice = createSlice({
 });
 
 export default currentCourseSlice.reducer;
-export { fetchcourse };
-export const { setCurrentCourse } = currentCourseSlice.actions;
+export { fetchcourse,increaseCourseLikes,decreaseCourseLikes };
+export const { setCurrentCourse, increaseLikes, decreaseLikes } =
+  currentCourseSlice.actions;
