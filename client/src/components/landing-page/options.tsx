@@ -32,7 +32,7 @@ export default function SearchOptions() {
             : dispatch(setSortBy("PRICE"));
         }}
       >
-        <span> Price</span>
+        <span>Sort By Price</span>
       </div>
     </div>
   );

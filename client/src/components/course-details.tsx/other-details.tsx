@@ -15,7 +15,7 @@ export default function OtherDetails() {
     (state: RootState) => state.currentCourse.course
   ) as CourseType | null;
 
-  console.log(courseDetails)
+
  
   const [isLiked ,setIsLiked] = useState(false)
   const likesCount :number = useSelector(
@@ -24,16 +24,16 @@ export default function OtherDetails() {
   const courseID :string = useSelector(
     (state: RootState) => state.currentCourse.courseID
   )
-  console.log('lk',likesCount)
+  
 
   const like = ()=>{
     if(isLiked){
-      dispatch(decreaseLikes())
-      console.log('courseID',courseID)
+      
+  
       dispatch(decreaseCourseLikes(courseID))
       setIsLiked(false)
     }else{
-      dispatch(increaseLikes())
+     
       dispatch(increaseCourseLikes(courseID))
       setIsLiked(true)
     }

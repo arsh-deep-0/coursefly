@@ -14,12 +14,11 @@ export default function Overview() {
     (state: RootState) => state.currentCourse.course
   ) as CourseType | null;
 
-  console.log("cd", courseDetails);
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     const fetchCourseData = async () => {
-      console.log('cid',courseID)
+ 
       dispatch(fetchcourse(courseID));
       dispatch(setCurrentCourse({id:courseID}))
     };

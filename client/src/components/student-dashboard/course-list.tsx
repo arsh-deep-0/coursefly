@@ -13,7 +13,7 @@ const CourseList: React.FC = () => {
     (state: RootState) => state.userCourses.courses
   );
   const user = useSelector((state: RootState) => state.user);
-  console.log("my courses", userCourses);
+
 
   const condition = useSelector(
     (state: RootState) => state.userCourses.condition
@@ -22,7 +22,6 @@ const CourseList: React.FC = () => {
     dispatch(fetchcourses(user.id) as any);
   }, [dispatch, user.id]);
 
-  console.log("userCourses: ", userCourses);
 
   const filterCondition = (result: subscriptionType, condition: string) => {
     if (condition === "INPROGRESS") {

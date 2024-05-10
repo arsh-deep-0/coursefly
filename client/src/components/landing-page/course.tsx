@@ -20,10 +20,10 @@ export default function Course(props: props) {
   useEffect(() => {
     const fetchCourse = async () => {
       const courseRes = await axios.get(`/api/courses/getCourse/${props.id}`);
-      console.log("coures:", courseRes);
+      
       if (courseRes) {
         setCourse(courseRes.data.data);
-        console.log("course:", course);
+  
       }
     };
     fetchCourse();

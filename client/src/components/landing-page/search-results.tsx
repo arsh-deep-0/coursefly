@@ -21,7 +21,6 @@ const SearchResults: React.FC = () => {
   const [searchResults, setSearchResults] =
     useState<Array<CourseType>>(allCourses);
 
-  console.log("sr", searchResults);
 
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
@@ -60,7 +59,7 @@ const SearchResults: React.FC = () => {
     }
   }, [sortBy]);
 
-  console.log("searchResults: ", searchResults);
+  
 
   return (
     <div className="flex flex-col gap-2 overflow-scroll h-full md:flex-row md:w-full md:max-w-full md:px-4 md:overflow-x-scroll  md:overflow-y-hidden ">
