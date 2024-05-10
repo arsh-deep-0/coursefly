@@ -90,7 +90,7 @@ export default function UserCourse(props: props) {
 
   return (
     <div
-      className="relative w-full p-4 bg-white flex flex-col gap-2 rounded-md gray-border md:min-w-96 "
+      className="relative w-full p-4 bg-white flex flex-col gap-2 rounded-md gray-border md:min-w-96 md:max-w-96 "
       onClick={openCourse}
     >
       <Image
